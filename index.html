@@ -204,7 +204,7 @@
     .fallback-wordmark {
       font-size: clamp(42px, 9vw, 106px);
       font-weight: 900;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.34em;
       line-height: 1;
     }
 
@@ -527,7 +527,8 @@
       }
     }
 
-    /* Poprawki wyłącznie pod responsywność / zabezpieczenie przed wychodzeniem poza ekran */
+
+    /* === FIX: tylko responsywność + logo na desktopie, bez zmiany linków/HTML === */
     html,
     body {
       width: 100%;
@@ -537,26 +538,26 @@
 
     img,
     svg,
-    video,
-    canvas {
+    video {
       max-width: 100%;
+      height: auto;
     }
 
     .page,
-    .topbar,
     .hero,
     .hero-inner,
-    .hero-copy,
     .brand-banner,
     .brand-banner-fallback,
-    .section-head,
     .company-grid,
     .company-card,
-    .company-logo-wrap,
-    .company-content,
-    .card-bottom {
-      min-width: 0;
+    .company-content {
       max-width: 100%;
+    }
+
+    .hero-copy,
+    .company-content,
+    .company-card {
+      min-width: 0;
     }
 
     h1,
@@ -565,65 +566,114 @@
     p,
     span,
     a {
-      overflow-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .brand-banner {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .brand-banner img {
+      width: 100%;
+      max-width: 100%;
+      max-height: 240px;
+      object-fit: contain;
+      object-position: center;
     }
 
     .brand-banner-fallback {
       width: 100%;
-      flex-wrap: wrap;
+      min-width: 0;
+      max-width: 100%;
+      justify-content: center;
+      align-items: center;
     }
 
     .fallback-wordmark {
       max-width: 100%;
-      letter-spacing: clamp(0.10em, 2.4vw, 0.34em);
+      white-space: nowrap;
       text-align: center;
     }
 
+    /* Desktop: logo nie ma już być gigantyczną rozlaną krową */
+    @media (min-width: 981px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      }
+
+      .brand-banner {
+        justify-self: center;
+        width: min(100%, 460px);
+        min-height: 260px;
+        padding: 28px;
+      }
+
+      .brand-banner img {
+        max-height: 220px;
+      }
+
+      .brand-banner-fallback {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+      }
+
+      .fallback-icon {
+        flex: 0 0 auto;
+        width: 130px;
+        height: 96px;
+      }
+
+      .fallback-wordmark {
+        font-size: clamp(44px, 4.6vw, 62px);
+        line-height: 1;
+        letter-spacing: 0.08em;
+        padding-left: 0.08em;
+      }
+    }
+
+    /* Telefony: zostaje ciasno, ale nic nie wychodzi poza ekran */
     @media (max-width: 430px) {
       .page {
         padding-left: 10px;
         padding-right: 10px;
       }
 
-      .topbar-brand {
-        font-size: 11px;
-        letter-spacing: 0.08em;
-      }
-
       .hero-inner {
         padding: 18px;
       }
 
-      h1 {
-        font-size: clamp(31px, 10vw, 38px);
-        letter-spacing: -0.045em;
-      }
-
-      .hero-copy p {
-        font-size: 15px;
-      }
-
       .brand-banner {
-        min-height: 112px;
+        min-height: 110px;
         padding: 12px;
       }
 
+      .brand-banner img {
+        max-height: 120px;
+      }
+
+      .brand-banner-fallback {
+        gap: 10px;
+      }
+
       .fallback-icon {
-        width: 86px;
-        height: 64px;
+        width: 72px;
+        height: 54px;
       }
 
       .fallback-wordmark {
-        font-size: clamp(30px, 15vw, 54px);
-        letter-spacing: 0.14em;
+        font-size: clamp(30px, 12vw, 44px);
+        letter-spacing: 0.08em;
+        padding-left: 0.08em;
+      }
+
+      .company-logo-wrap {
+        min-height: 130px;
       }
 
       .company-content h3 {
-        font-size: 21px;
-      }
-
-      .card-bottom {
-        align-items: flex-start;
+        font-size: 22px;
       }
     }
 
@@ -648,10 +698,6 @@
 
       .company-logo-wrap {
         padding: 12px;
-      }
-
-      .arrow {
-        flex: 0 0 38px;
       }
     }
 
