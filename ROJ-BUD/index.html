@@ -559,38 +559,21 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .gallery-item {
+    .gallery-item,
+    .gallery-item:nth-child(n) {
       position: relative;
       overflow: hidden;
-      min-height: 290px;
-      border-radius: 24px;
+      grid-column: auto;
+      height: 285px;
+      min-height: 0;
+      border-radius: 22px;
       background: #ddd;
       border: 1px solid rgba(16, 19, 24, 0.09);
       box-shadow: 0 14px 34px rgba(16, 19, 24, 0.1);
-    }
-
-    .gallery-item:nth-child(1),
-    .gallery-item:nth-child(6) {
-      grid-column: span 7;
-      min-height: 430px;
-    }
-
-    .gallery-item:nth-child(2),
-    .gallery-item:nth-child(5) {
-      grid-column: span 5;
-      min-height: 430px;
-    }
-
-    .gallery-item:nth-child(3),
-    .gallery-item:nth-child(4),
-    .gallery-item:nth-child(7),
-    .gallery-item:nth-child(8),
-    .gallery-item:nth-child(9) {
-      grid-column: span 4;
     }
 
     .gallery-item img {
@@ -1016,14 +999,9 @@
     .gallery-item:nth-child(n) {
       grid-column: auto;
       min-height: 0;
-      height: 255px;
+      height: 285px;
       border-radius: 20px;
       box-shadow: 0 12px 28px rgba(16, 19, 24, 0.08);
-    }
-
-    .gallery-item:first-child,
-    .gallery-item:nth-child(2) {
-      height: 300px;
     }
 
     .gallery-label {
@@ -1176,7 +1154,7 @@
 
         <div class="metric-card">
           <strong>4</strong>
-          <span>główne zakresy usług: brukarstwo, roboty ziemne, wyburzenia oraz transport.</span>
+          <span>główne zakresy usług: brukarstwo, roboty ziemne, wyburzenia oraz transport z materiałem.</span>
         </div>
       </div>
     </section>
@@ -1284,6 +1262,10 @@
           <img src="assets/realizacja-podbudowa.jpg" alt="Przygotowanie podbudowy pod nawierzchnię" loading="lazy" />
           <span class="gallery-label">Przygotowanie podbudowy</span>
         </a>
+        <a class="gallery-item" href="assets/realizacja-zageszczarka.jpg" aria-label="Otwórz zdjęcie zagęszczarki">
+          <img src="assets/realizacja-zageszczarka.jpg" alt="Zagęszczarka na przygotowanej nawierzchni" loading="lazy" />
+          <span class="gallery-label">Zagęszczanie podłoża</span>
+        </a>
         <a class="gallery-item" href="assets/realizacja-wykop-instalacja.jpg" aria-label="Otwórz zdjęcie wykopu instalacyjnego">
           <img src="assets/realizacja-wykop-instalacja.jpg" alt="Wykop pod instalację" loading="lazy" />
           <span class="gallery-label">Wykop pod instalację</span>
@@ -1296,13 +1278,13 @@
           <img src="assets/realizacja-taras-kostka.jpg" alt="Taras i plac z kostki brukowej" loading="lazy" />
           <span class="gallery-label">Taras i plac</span>
         </a>
-        <a class="gallery-item" href="assets/realizacja-wyburzenie.jpg" aria-label="Otwórz zdjęcie wyburzenia">
-          <img src="assets/realizacja-wyburzenie.jpg" alt="Wyburzanie budynku" loading="lazy" />
-          <span class="gallery-label">Wyburzanie budynku</span>
+        <a class="gallery-item" href="assets/realizacja-nowoczesny-podjazd.jpg" aria-label="Otwórz zdjęcie gotowego podjazdu">
+          <img src="assets/realizacja-nowoczesny-podjazd.jpg" alt="Gotowy podjazd z kostki brukowej przy domu" loading="lazy" />
+          <span class="gallery-label">Gotowy podjazd</span>
         </a>
-        <a class="gallery-item" href="assets/realizacja-rozbiorka-gruz.jpg" aria-label="Otwórz zdjęcie rozbiórki">
-          <img src="assets/realizacja-rozbiorka-gruz.jpg" alt="Rozbiórka i gruz po wyburzeniu" loading="lazy" />
-          <span class="gallery-label">Rozbiórka i gruz</span>
+        <a class="gallery-item" href="assets/realizacja-budowa-podjazdu.jpg" aria-label="Otwórz zdjęcie budowy podjazdu">
+          <img src="assets/realizacja-budowa-podjazdu.jpg" alt="Budowa podjazdu i przygotowanie nawierzchni" loading="lazy" />
+          <span class="gallery-label">Budowa podjazdu</span>
         </a>
       </div>
     </section>
