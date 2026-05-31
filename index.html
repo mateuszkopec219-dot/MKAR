@@ -526,6 +526,135 @@
         padding: 18px 18px 20px;
       }
     }
+
+    /* Poprawki wyłącznie pod responsywność / zabezpieczenie przed wychodzeniem poza ekran */
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+      max-width: 100%;
+    }
+
+    .page,
+    .topbar,
+    .hero,
+    .hero-inner,
+    .hero-copy,
+    .brand-banner,
+    .brand-banner-fallback,
+    .section-head,
+    .company-grid,
+    .company-card,
+    .company-logo-wrap,
+    .company-content,
+    .card-bottom {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    span,
+    a {
+      overflow-wrap: break-word;
+    }
+
+    .brand-banner-fallback {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .fallback-wordmark {
+      max-width: 100%;
+      letter-spacing: clamp(0.10em, 2.4vw, 0.34em);
+      text-align: center;
+    }
+
+    @media (max-width: 430px) {
+      .page {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .topbar-brand {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+      }
+
+      .hero-inner {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: clamp(31px, 10vw, 38px);
+        letter-spacing: -0.045em;
+      }
+
+      .hero-copy p {
+        font-size: 15px;
+      }
+
+      .brand-banner {
+        min-height: 112px;
+        padding: 12px;
+      }
+
+      .fallback-icon {
+        width: 86px;
+        height: 64px;
+      }
+
+      .fallback-wordmark {
+        font-size: clamp(30px, 15vw, 54px);
+        letter-spacing: 0.14em;
+      }
+
+      .company-content h3 {
+        font-size: 21px;
+      }
+
+      .card-bottom {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .page {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .hero-inner {
+        padding: 16px;
+      }
+
+      .eyebrow {
+        max-width: 100%;
+        white-space: normal;
+      }
+
+      .brand-banner {
+        min-height: 100px;
+      }
+
+      .company-logo-wrap {
+        padding: 12px;
+      }
+
+      .arrow {
+        flex: 0 0 38px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -569,7 +698,7 @@
       </div>
 
       <div class="company-grid">
-        <a class="company-card" href="ROJ-BUD/index.html" aria-label="Przejdź do strony ROJ-BUD">
+        <a class="company-card" href="MKAR/roj-bud/index.html" aria-label="Przejdź do strony ROJ-BUD">
           <div class="company-logo-wrap">
             <!-- Podmień src na faktyczny plik z logo ROJ-BUD -->
             <img src="logo-roj-bud.png" alt="Logo ROJ-BUD" />
@@ -585,7 +714,7 @@
           </div>
         </a>
 
-        <a class="company-card" href="MK-RC/index.html" aria-label="Przejdź do strony MK Racing Factory">
+        <a class="company-card" href="MKAR/MK-RC/index.html" aria-label="Przejdź do strony MK Racing Factory">
           <div class="company-logo-wrap dark">
             <!-- Podmień src na faktyczny plik z logo MK Racing Factory -->
             <img src="logo-mk-rc.png" alt="Logo MK Racing Factory" />
@@ -601,7 +730,7 @@
           </div>
         </a>
 
-        <a class="company-card" href="MK-WD/index.html" aria-label="Przejdź do strony MK Web & Infrastructure">
+        <a class="company-card" href="MKAR/MK-WD/index.html" aria-label="Przejdź do strony MK Web & Infrastructure">
           <div class="company-logo-wrap">
             <!-- Podmień src na faktyczny plik z logo MK Web & Infrastructure -->
             <img src="logo-mk-wi.png" alt="Logo MK Web & Infrastructure" />
